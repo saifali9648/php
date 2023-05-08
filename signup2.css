@@ -1,0 +1,73 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+body
+{
+  background-image: url();
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: sans-serif;
+
+}
+.container
+{
+    background: linear-gradient(45deg,dodgerblue,white,purple);
+    width: 12cm;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin:8% auto 0;
+    position: relative;
+}
+label
+{
+    width: 140px;
+    display: inline-block;
+    margin: 0.2cm;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+.input-box,select
+{
+    padding: 4px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #f9f9f9;
+    width: 7cm;
+}
+#btn
+{
+    margin-top: 7px;
+    color: white;
+    font-weight: bold;
+    padding: 4px;
+    background-color: dodgerblue;
+    margin-left: 105px;
+}
+#btn:hover
+{
+    background-color: green;
+    color: #f9f9f9;
+}
+h2
+{
+    text-align: center;
+    text-decoration: underline;
+    color: blue;
+    margin: 10px;
+    font-size: 24px;
+}
+.sesson
+{
+    padding: 4px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 1px solid #f9f9f9;
+    width: 2.2cm;
+}

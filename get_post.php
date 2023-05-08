@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1 >Welcome to OUr MAHARISHI MARKANDESHWAR LMS </h1>
-    <nav class="navbar navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-expand-lg ">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">SS_LMS</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
