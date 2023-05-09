@@ -7,19 +7,8 @@
     <title>SignUp</title>
     <link rel="stylesheet" href="signup2.css">
 </head>
-<body style="background-image:url(signup_bgimage.jpggS)";>
+<body style="background-image:url(signup_bgimage.jpgsS)";>
 <?php
-$servername="localhost";
-$username="root";
-$password= "";
-$databse="lms";
-$conn=mysqli_connect($servername,$username,$password,$databse);
-if (!$conn) {
-    die();
-}
-else{
-    echo "sucessful connection established";
-}
 if ($_SERVER['REQUEST_METHOD']=="post") {
     $rollno = $_POST['rollno'];
     $name = $_POST['name'];
@@ -27,8 +16,19 @@ if ($_SERVER['REQUEST_METHOD']=="post") {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $mobileno = $_POST['mobileno'];
+
+$servername="localhost";
+$username="root";
+$password= " ";
+$databse="lms";
+$conn=mysqli_connect($servername,$username,$password,$databse);
+if (!$conn) {
+    die("connection not established sucessful".mysqli_connect_error());
 }
-$sql="insert into sign_up ('rollno', 'name', 'session', 'email', 'password', 'mobileno') 
+else{
+    echo "sucessful connection established<br>";
+
+$sql="insert into 'sign_up' ('rollno', 'name', 'session', 'email', 'password', 'mobileno') 
 values ('$rollno', '$name', '$session', '$email', '$password', '$mobileno')";
 $result=mysqli_query($conn,$sql);
 if ($result) {
@@ -37,9 +37,11 @@ if ($result) {
 else {
     echo "data not inserted".mysqli_error($conn);
 }
+}
+}
 ?>
     <div class="container">
-            <form id="form" action="sign_up_page.php" method="post">
+            <form id="form" action="/saifphp/sign_up_page.php" method="post">
                 <h2>Register Yourself</h2>
                 <label for="name">Name:</label>
                 <input type="text" name="name" class="input-box" id="name" placeholder="Your Name" required="">

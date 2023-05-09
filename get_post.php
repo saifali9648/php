@@ -6,8 +6,33 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   </head>
-  <body>
-    <h1 >Welcome to OUr MAHARISHI MARKANDESHWAR LMS </h1>
+  <body><?php
+  if ($_SERVER['REQUEST_METHOD']=="post") {
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+
+$servername="localhost";
+$username="root";
+$password= "";
+$databse="lms";
+$conn=mysqli_connect($servername,$username,$password,$databse);
+if (!$conn) {
+    die("conection not establislhed".mysqli_connect_error());
+}
+else{
+    echo "sucessful connection established";
+}
+$sql="INSERT INTO `details` (`email`, `pass`) VALUES ('$email', '$pass')";
+$result=mysqli_query($conn,$sql);
+if ($result) {
+    echo "data inserted successful";
+}
+else {
+    echo "data not inserted".mysqli_error($conn);
+}
+}
+?>
+    <h1>Welcome to OUr MAHARISHI MARKANDESHWAR LMS </h1>
     <nav class="navbar navbar-expand-lg ">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">SS_LMS</a>
@@ -46,7 +71,7 @@
 </nav>
 <div class="container">
     <H3>Please enter your eamil and password</H3>
-<form action="" method="post">
+<form action="/saifphp/get_post.php" method="post">
   <div class="row mb-3">
     <label for="email" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
