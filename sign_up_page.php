@@ -9,7 +9,7 @@
 </head>
 <body style="background-image:url(signup_bgimage.jpgsS)";>
 <?php
-if ($_SERVER['REQUEST_METHOD']=="post") {
+if (isset($_POST['submit'])) {
     $rollno = $_POST['rollno'];
     $name = $_POST['name'];
     $session = $_POST['session'];
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD']=="post") {
 
 $servername="localhost";
 $username="root";
-$password= " ";
+$password= "";
 $databse="lms";
 $conn=mysqli_connect($servername,$username,$password,$databse);
 if (!$conn) {
@@ -28,7 +28,7 @@ if (!$conn) {
 else{
     echo "sucessful connection established<br>";
 
-$sql="insert into 'sign_up' ('rollno', 'name', 'session', 'email', 'password', 'mobileno') 
+$sql="INSERT INTO 'sign_up' ('rollno', 'name', 'session', 'email', 'password', 'mobileno') 
 values ('$rollno', '$name', '$session', '$email', '$password', '$mobileno')";
 $result=mysqli_query($conn,$sql);
 if ($result) {
@@ -36,12 +36,12 @@ if ($result) {
 }
 else {
     echo "data not inserted".mysqli_error($conn);
-}
-}
+     }
+    }
 }
 ?>
     <div class="container">
-            <form id="form" action="/saifphp/sign_up_page.php" method="post">
+            <form id="form" action="sign_up_page.php" method="post">
                 <h2>Register Yourself</h2>
                 <label for="name">Name:</label>
                 <input type="text" name="name" class="input-box" id="name" placeholder="Your Name" required="">
