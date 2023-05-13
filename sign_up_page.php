@@ -9,7 +9,7 @@
 </head>
 <body style="background-image:url(signup_bgimage.jpg)";>
 <?php
-if (($_POST['register'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $rollno = $_POST['rollno'];
     $name = $_POST['name'];
     $session = $_POST['session'];
@@ -27,7 +27,7 @@ if (!$conn) {
 else{
     echo "sucessful connection established<br>";
 
-$sql="INSERT INTO sign_up ('rollno', 'name', 'session', 'email', 'password', 'mobileno') 
+$sql="INSERT INTO sign_up (rollno, name, session, email, password, mobileno) 
 values ('$rollno', '$name', '$session', '$email', '$password', '$mobileno')";
 $result=mysqli_query($conn,$sql);
 if ($result){
@@ -40,7 +40,7 @@ else{
 }
 ?>
     <div class="container">
-            <form id="form" action="sign_up_page.php" method="post">
+            <form id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
                 <h2>Register Yourself</h2>
                 <label for="name">Name:</label>
                 <input type="text" name="name" class="input-box" id="name" placeholder="Your Name" required="">
@@ -58,7 +58,7 @@ else{
                 <label for="password">Password:</label>
                 <input type="password" name="password" class="input-box" id="password" placeholder="Your Password"required="">
                 <br/>
-                <label for="mobile">Mobile no. :</label>
+                <label for="mobileno">Mobile no. :</label>
                 <input type="number" name="mobileno" class="input-box" id="mobileno" placeholder="Your Mobile no." required="">
                 <br/>
                 <label for="department">Department:</label>
@@ -70,7 +70,7 @@ else{
                 <br/>
                 <p><input type="checkbox" class="" name=""/>Terms&Conditions</p>
                 <br/>
-                <input type="submit" value="Register" class="input-box" id="btn" name="register">
+                <input type="submit" value="Register" class="input-box" id="Register" name="Register">
             </form>
     </div>
 </body>
