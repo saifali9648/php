@@ -7,16 +7,15 @@
     <title>SignUp</title>
     <link rel="stylesheet" href="signup2.css">
 </head>
-<body style="background-image:url(signup_bgimage.jpgsS)";>
+<body style="background-image:url(signup_bgimage.jpg)";>
 <?php
-if (isset($_POST['submit'])) {
+if (($_POST['register'])) {
     $rollno = $_POST['rollno'];
     $name = $_POST['name'];
     $session = $_POST['session'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $mobileno = $_POST['mobileno'];
-
 $servername="localhost";
 $username="root";
 $password= "";
@@ -28,15 +27,15 @@ if (!$conn) {
 else{
     echo "sucessful connection established<br>";
 
-$sql="INSERT INTO 'sign_up' ('rollno', 'name', 'session', 'email', 'password', 'mobileno') 
+$sql="INSERT INTO sign_up ('rollno', 'name', 'session', 'email', 'password', 'mobileno') 
 values ('$rollno', '$name', '$session', '$email', '$password', '$mobileno')";
 $result=mysqli_query($conn,$sql);
-if ($result) {
+if ($result){
     echo "data inserted successful";
 }
-else {
+else{
     echo "data not inserted".mysqli_error($conn);
-     }
+    }
     }
 }
 ?>
@@ -50,8 +49,8 @@ else {
                 <input type="text" name="rollno" class="input-box" id="rollno" placeholder="Your Rollno" required="">
                 <br/>
                 <label for="session">Session:</label>
-                 From &nbsp;<input type="date" name="session" class="sesson" placeholder="" id=session required="">
-                 &nbsp;To&nbsp;<input type="date" name="session2" class="sesson " id="session2" placeholder="" required="">
+                From &nbsp;<input type="date" name="session" class="sesson" placeholder="" id=session required="">
+                &nbsp;To&nbsp;<input type="date" name="session2" class="sesson " id="session2" placeholder="" required="">
                 <br/>
                 <label for="email">Email:</label>
                 <input type="email" name="email" class="input-box" id="email" placeholder="Your Email" required>
