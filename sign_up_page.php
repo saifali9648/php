@@ -25,13 +25,18 @@ if (!$conn) {
     die("connection not established sucessful".mysqli_connect_error());
 }
 else{
-    echo "sucessful connection established<br>";
+    
 
 $sql="INSERT INTO sign_up (rollno, name, session, email, password, mobileno) 
 values ('$rollno', '$name', '$session', '$email', '$password', '$mobileno')";
 $result=mysqli_query($conn,$sql);
 if ($result){
-    echo "data inserted successful";
+    echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>';
 }
 else{
     echo "data not inserted".mysqli_error($conn);
